@@ -1,0 +1,65 @@
+.contenido {
+    display: block;
+    justify-content: center;
+}
+.titulo {
+    text-align: center;
+}
+.akash {
+    position: relative; 
+    width: 100%; /*ancho del navegador*/
+    height: 50%; 
+    background-image: url(Imagenes/atardecer-yoga.jpg);
+    background-size: cover; /*Ocupa todo el div*/
+    background-position: center; 
+    padding: 100px;
+    border: solid 2px;
+}
+.akash h2, .vayu h2, .tejas h2, .prithvi h2, .apas h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+.akash p, .vayu p, .tejas p, .prithvi p, .apas p {
+    color: white;
+    font-size: 20px;
+}
+.vayu {
+    position: relative; 
+    width: 100%; /*ancho del navegador*/
+    height: 50%; 
+    background-image: url(Imagenes/windmills-1048981_1280.jpg);
+    background-size: cover; /*Ocupa todo el div*/
+    background-position: center; 
+    padding: 100px;
+    border: solid 2px;
+}
+.tejas {
+    position: relative; 
+    width: 100%; /*ancho del navegador*/
+    height: 50%; 
+    background-image: url(Imagenes/coal-4778784_1280.jpg);
+    background-size: cover; /*Ocupa todo el div*/
+    background-position: center; 
+    padding: 100px;
+    border: solid 2px;
+}
+.prithvi {
+    position: relative; 
+    width: 100%; /*ancho del navegador*/
+    height: 50%; 
+    background-image: url(Imagenes/trigo.jpg);
+    background-size: cover; /*Ocupa todo el div*/
+    background-position: center; 
+    padding: 100px;
+    border: solid 2px;
+}
+.apas {
+    position: relative; 
+    width: 100%; /*ancho del navegador*/
+    height: 50%; 
+    background-image: url(Imagenes/water-5173774_1280.jpg);
+    background-size: cover; /*Ocupa todo el div*/
+    background-position: bottom; 
+    padding: 100px;
+    border: solid 2px;
+}
