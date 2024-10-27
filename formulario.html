@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario</title>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 3px;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Contacto</h1>
+    <form onsubmit="return validarForm()" id="frm" class="formulario">
+        <div class="form-group">
+            <label for="f_nombre">Nombre</label>
+            <input type="text" id="f_nombre">
+        </div>
+        <div class="form-group">
+            <label for="f_comentario">Comentario</label>
+            <textarea name="" id="f_comentario"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="f_correo">Email</label>
+            <input type="email" id="f_correo"><br>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+    <form>
+        <div>
+            <ul id="listaErrores">
+            </ul>
+        </div>
+        <div>
+            <h2>Comentarios</h2>
+            <ol id="listaComentarios">
+            </ol>
+        </div>
+    </form>
+</body>
+
+<script>
+    function validarForm() {
+        // variables
+        var f_nombre = document.getElementById("f_nombre");
+        var f_comentario = document.getElementById("f_comentario");
+        var listaErrores = document.getElementById("listaErrores");
+        // Resetear lista de errores
+        listaErrores.innerHTML = "";
+        // Comprobacion de errores
+        if (f_nombre.value == "") {
+            li = document.createElement("li");
+            li.innerHTML = "Falta el nombre";
+            listaErrores.appendChild(li);
+        }
+        // Comentario opcional, pero al menos 5 comentarios
+        if (f_comentario.value.length > 0 && f_comentario.value.length < 5) {
+            li = document.createElement("li");
+            li.innerHTML = "El comentario debe ser de al menos 5 caracteres";
+            listaErrores.appendChild(li);
+        }
+        // validacion de correo
+        var f_correo = document.getElementById("f_correo");
+        let regexp_correo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+        if (!regexp_correo.test(f_correo.value)) {
+            li = document.createElement("li");
+            li.innerHTML = "El correo debe ser valido";
+            listaErrores.appendChild(li);
+        }
+        // Revision de errores
+        if (listaErrores.childNodes.length > 0) {
+            return false;
+        }
+        reportar();
+        return false;
+    }
+    function reportar() {
+        var f_nombre = document.getElementById("f_nombre");
+        var f_comentario = document.getElementById("f_comentario");
+        var listaComentarios = document.getElementById("listaComentarios");
+
+        var li = document.createElement("li");
+        li.innerHTML = `${f_nombre.value}: ${f_comentario.value}`;
+        listaComentarios.appendChild(li);
+        //Resetear el formulario
+        var frm = document.getElementById("frm");
+        frm.reset();
+        f_nombre.focus();
+    }
+</script>
+
+</html>
