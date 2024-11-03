@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carrusel</title>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="">
+
+    <style>
+        a {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 25px;
+            margin: 15px;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: blanchedalmond;
+            margin: 0;
+            padding: 0;
+
+            /* Contenedor */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 70px;
+            overflow: hidden;
+        }
+
+        .carrusel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .imagenes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .img {
+            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+            height: 576px;
+            width: 1134px;
+            border-radius: 15px;
+            margin: 5px;
+            object-fit: cover;
+            filter: saturate(175%);
+        }
+
+        .puntos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .puntos p {
+            font-size: 100px;
+            font-weight: 500;
+            margin-top: -50px;
+            color: black;
+        }
+
+        .puntos .bold {
+            font-weight: 700;
+            margin-left: 10px;
+            margin-right: 10px;
+            color: #5E17EB;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="menuArriba">
+        <div class="menuPrincipal">
+            <a href="index.html">INICIO</a>
+            <a href="formulario.html">Contactanos</a>
+            <a href="Carrusel.html">Carrusel</a>
+        </div>
+    </header>
+    <div class="carrusel">
+        <div class="atras">
+            <img id="atras" src="Imagenes/atras.svg" alt="atras" loading="lazy">
+        </div>
+
+        <div class="imagenes">
+            <div id="img">
+                <img class="img" src="Imagenes/trigo.jpg" alt="imagen 1" loading="lazy">
+            </div>
+        </div>
+
+        <div class="adelante" id="adelante">
+            <img src="Imagenes/adelante.svg" alt="adelante" loading="lazy">
+        </div>
+    </div>
+
+    <div class="puntos" id="puntos"></div>
+</body>
+
+<script>
+    let listImg = [
+        {
+            "url": "Imagenes/trigo.jpg"
+        },
+        {
+            "url": "Imagenes/windmills-1048981_1280.jpg"
+        },
+        {
+            "url": "Imagenes/water-5173774_1280.jpg"
+        },
+        {
+            "url": "Imagenes/coal-4778784_1280.jpg"
+        }
+    ]
+
+    let atras = document.getElementById('atras');
+    let adelante = document.getElementById('adelante');
+    let imagen = document.getElementById('img');
+    let puntos = document.getElementById('puntos');
+    let texto = document.getElementById('texto')
+    let actual = 0
+    posicionCarrusel();
+
+    atras.addEventListener('click', function () {
+        actual -= 1;
+
+        if (actual == -1) {
+            actual = listImg.length - 1;
+        }
+
+        imagen.innerHTML = `<img class="img" src="${listImg[actual].url}" alt="imagen" loading="lazy"></img>`
+
+        posicionCarrusel()
+    })
+
+    adelante.addEventListener('click', function () {
+        actual += 1;
+
+        if (actual == listImg.length) {
+            actual = 0;
+        }
+
+        imagen.innerHTML = `<img class="img" src="${listImg[actual].url}" alt="imagen" loading="lazy"></img>`
+
+        posicionCarrusel();
+    })
+
+    function posicionCarrusel() {
+        puntos.innerHTML = "";
+        for (let i = 0; i < listImg.length; i++) {
+            if (i == actual) {
+                puntos.innerHTML += '<p class="bold">.<p>'
+            }
+            else {
+                puntos.innerHTML += '<p>.<p>'
+            }
+        }
+    }
+
+</script>
+
+</html>

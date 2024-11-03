@@ -1,65 +1,80 @@
+body {
+    background-color: blanchedalmond;
+    margin: 0;
+    padding: 0;
+}
+
+.menuArriba,
+.menuPrincipal {
+    background-color: rgb(207, 177, 129);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 15vh;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin: 15px;
+}
+
+.contenido {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 80vw; */
+    margin:0 15vh;
+}
+
+.menuPrincipal h2 {
+    margin: 10px;
+}
+
 .contenido {
     display: block;
     justify-content: center;
 }
-.titulo {
+
+.tituloPrincipal,
+.subTitulo {
     text-align: center;
 }
-.akash {
-    position: relative; 
-    width: 100%; /*ancho del navegador*/
-    height: 50%; 
-    background-image: url(Imagenes/atardecer-yoga.jpg);
-    background-size: cover; /*Ocupa todo el div*/
-    background-position: center; 
-    padding: 100px;
-    border: solid 2px;
-}
-.akash h2, .vayu h2, .tejas h2, .prithvi h2, .apas h2 {
+
+p {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
-}
-.akash p, .vayu p, .tejas p, .prithvi p, .apas p {
-    color: white;
     font-size: 20px;
 }
-.vayu {
-    position: relative; 
-    width: 100%; /*ancho del navegador*/
-    height: 50%; 
-    background-image: url(Imagenes/windmills-1048981_1280.jpg);
-    background-size: cover; /*Ocupa todo el div*/
-    background-position: center; 
-    padding: 100px;
-    border: solid 2px;
+
+.imagen {
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin-right: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
 }
-.tejas {
-    position: relative; 
-    width: 100%; /*ancho del navegador*/
-    height: 50%; 
-    background-image: url(Imagenes/coal-4778784_1280.jpg);
-    background-size: cover; /*Ocupa todo el div*/
-    background-position: center; 
-    padding: 100px;
-    border: solid 2px;
+
+.tatwas {
+    margin: 5px 0;
+    clear: fixed;
+    overflow: auto;
 }
-.prithvi {
-    position: relative; 
-    width: 100%; /*ancho del navegador*/
-    height: 50%; 
-    background-image: url(Imagenes/trigo.jpg);
-    background-size: cover; /*Ocupa todo el div*/
-    background-position: center; 
-    padding: 100px;
-    border: solid 2px;
+
+#img1,
+#img3,
+#img5 {
+    float: right;
+    margin-left: 10px;
+
 }
-.apas {
-    position: relative; 
-    width: 100%; /*ancho del navegador*/
-    height: 50%; 
-    background-image: url(Imagenes/water-5173774_1280.jpg);
-    background-size: cover; /*Ocupa todo el div*/
-    background-position: bottom; 
-    padding: 100px;
-    border: solid 2px;
+
+#img2,
+#img4 {
+    float: left;
+
 }

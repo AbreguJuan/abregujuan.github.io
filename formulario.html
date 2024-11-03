@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="">
 
     <style>
+
+
+        a {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 25px;
+            margin: 15px;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -40,17 +48,30 @@
             margin-bottom: 3px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
+        }
+
+        .form-group input,
+        .error {
+            border: 1px solid red;
         }
     </style>
 
 </head>
 
 <body>
+    <header class="menuArriba">
+        <div class="menuPrincipal">
+            <a href="index.html">INICIO</a>
+            <a href="formulario.html">Contactanos</a>
+            <a href="Carrusel.html">Carrusel</a>
+        </div>
+    </header>
     <h1>Contacto</h1>
     <form onsubmit="return validarForm()" id="frm" class="formulario">
         <div class="form-group">
@@ -81,24 +102,31 @@
 </body>
 
 <script>
+    // variables
+    var f_nombre = document.getElementById("f_nombre");
+    var f_comentario = document.getElementById("f_comentario");
+    var listaErrores = document.getElementById("listaErrores");
+    var listaComentarios = document.getElementById("listaComentarios");
     function validarForm() {
-        // variables
-        var f_nombre = document.getElementById("f_nombre");
-        var f_comentario = document.getElementById("f_comentario");
-        var listaErrores = document.getElementById("listaErrores");
         // Resetear lista de errores
         listaErrores.innerHTML = "";
+        // Resetea borde rojo de error
+        // f_nombre.classList.remove("error");
+        // f_comentario.classList.remove("error");
+        // f_correo.classList.remove("error");
         // Comprobacion de errores
         if (f_nombre.value == "") {
             li = document.createElement("li");
             li.innerHTML = "Falta el nombre";
             listaErrores.appendChild(li);
+            f_nombre.classList.add("error");
         }
         // Comentario opcional, pero al menos 5 comentarios
         if (f_comentario.value.length > 0 && f_comentario.value.length < 5) {
             li = document.createElement("li");
             li.innerHTML = "El comentario debe ser de al menos 5 caracteres";
             listaErrores.appendChild(li);
+            f_comentario.classList.add("error");
         }
         // validacion de correo
         var f_correo = document.getElementById("f_correo");
@@ -107,6 +135,7 @@
             li = document.createElement("li");
             li.innerHTML = "El correo debe ser valido";
             listaErrores.appendChild(li);
+            f_correo.classList.add("error");
         }
         // Revision de errores
         if (listaErrores.childNodes.length > 0) {
@@ -115,11 +144,8 @@
         reportar();
         return false;
     }
-    function reportar() {
-        var f_nombre = document.getElementById("f_nombre");
-        var f_comentario = document.getElementById("f_comentario");
-        var listaComentarios = document.getElementById("listaComentarios");
 
+    function reportar() {
         var li = document.createElement("li");
         li.innerHTML = `${f_nombre.value}: ${f_comentario.value}`;
         listaComentarios.appendChild(li);
